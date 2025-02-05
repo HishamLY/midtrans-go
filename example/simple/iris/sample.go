@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/midtrans/midtrans-go"
-	"github.com/midtrans/midtrans-go/example"
-	"github.com/midtrans/midtrans-go/iris"
+	"github.com/hishamly/midtrans-go"
+	"github.com/hishamly/midtrans-go/example"
+	"github.com/hishamly/midtrans-go/iris"
 	"math/rand"
 	"strconv"
 	"time"

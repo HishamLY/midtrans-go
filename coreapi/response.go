@@ -1,6 +1,6 @@
 package coreapi
 
-import "github.com/midtrans/midtrans-go"
+import "github.com/hishamly/midtrans-go"
 
 type ResponseWithMap map[string]interface{}
 

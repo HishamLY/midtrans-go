@@ -2,7 +2,7 @@ package coreapi
 
 import (
 	"encoding/json"
-	"github.com/midtrans/midtrans-go"
+	"github.com/hishamly/midtrans-go"
 	assert "github.com/stretchr/testify/require"
 	"testing"
 	"time"

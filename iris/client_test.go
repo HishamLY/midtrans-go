@@ -2,7 +2,7 @@ package iris
 
 import (
 	"fmt"
-	"github.com/midtrans/midtrans-go"
+	"github.com/hishamly/midtrans-go"
 	assert "github.com/stretchr/testify/require"
 	"math/rand"
 	"strconv"
@@ -183,7 +183,7 @@ func TestValidateBankAccount(t *testing.T) {
 	assert.Equal(t, resp.AccountNo, "1111222233333")
 }
 
-func TestCreatePayoutFail(t *testing.T)  {
+func TestCreatePayoutFail(t *testing.T) {
 	iris := Client{}
 	iris.New(irisCreatorKeySandbox, midtrans.Sandbox)
 
@@ -205,7 +205,6 @@ func TestCreatePayoutFail(t *testing.T)  {
 	var payouts []CreatePayoutDetailReq
 	payouts = append(payouts, p1)
 	payouts = append(payouts, p2)
-
 
 	cp := CreatePayoutReq{Payouts: payouts}
 	payoutReps, err := iris.CreatePayout(cp)
