@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/hishamly/midtrans-go"
 	assert "github.com/stretchr/testify/require"
+	"os"
 	"testing"
 	"time"
 )
@@ -73,6 +74,15 @@ func TestCardToken(t *testing.T) {
 	assert.Equal(t, resp2.StatusCode, "200")
 }
 
+func TestCardTokenForIntegration(t *testing.T) {
+	integrationClientKey := os.Getenv("INTEGRATION_CLIENT_KEY")
+	year := time.Now().Year() + 1
+	midtrans.Environment = midtrans.Integration
+	midtrans.ClientKey = integrationClientKey
+	resp1, _ := CardToken(sampleCardNumber, 12, year, "123")
+	assert.Equal(t, resp1.StatusCode, "200")
+}
+
 func TestChargeTransactionWithMap(t *testing.T) {
 	req1 := &ChargeReqWithMap{
 		"payment_type": "gopay",
@@ -100,6 +110,34 @@ func TestChargeTransactionWithMap(t *testing.T) {
 	resp2, _ := c.ChargeTransactionWithMap(req2)
 	assert.Equal(t, resp2["status_code"], "201")
 	assert.Equal(t, resp2["payment_type"], "bank_transfer")
+}
+
+func TestChargeTransactionWithMapForIntegration(t *testing.T) {
+	integrationClientKey := os.Getenv("INTEGRATION_CLIENT_KEY")
+	integrationServerKey := os.Getenv("INTEGRATION_SERVER_KEY")
+	year := time.Now().Year() + 1
+	midtrans.Environment = midtrans.Integration
+	midtrans.ClientKey = integrationClientKey
+	resp1, _ := CardToken(sampleCardNumber, 12, year, "123")
+	assert.Equal(t, resp1.StatusCode, "200")
+
+	req1 := &ChargeReqWithMap{
+		"payment_type": "credit_card",
+		"transaction_details": map[string]interface{}{
+			"order_id":     "MID-GO-UNIT_TEST-CC-" + timestamp(),
+			"gross_amount": 1000,
+			"currency":     "IDR",
+		},
+		"credit_card": map[string]interface{}{
+			"token_id":       resp1.TokenID,
+			"authentication": false,
+		},
+	}
+
+	midtrans.ServerKey = integrationServerKey
+	resp, _ := ChargeTransactionWithMap(req1)
+	assert.Equal(t, resp["status_code"], "200")
+	assert.Equal(t, resp["payment_type"], "credit_card")
 }
 
 func TestChargeTransaction(t *testing.T) {
