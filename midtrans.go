@@ -23,7 +23,7 @@ const (
 	Integration
 
 	//libraryVersion : midtrans go library version
-	libraryVersion = "v1.3.8-integration"
+	libraryVersion = "v1.3.8-integration.1"
 )
 
 // ServerKey is config payment API key for global use
@@ -90,7 +90,7 @@ func GetHttpClient(Env EnvironmentType) *HttpClientImplementation {
 var typeString = map[EnvironmentType]string{
 	Sandbox:     "https://api.sandbox.midtrans.com",
 	Production:  "https://api.midtrans.com",
-	Integration: "https://api-uat.stg.midtrans.com",
+	Integration: "https://api.stg.midtrans.com",
 }
 
 // BaseUrl To get Midtrans Base URL
