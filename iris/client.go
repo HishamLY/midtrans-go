@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/midtrans/midtrans-go"
+	"github.com/hishamly/midtrans-go"
 	"net/http"
 )
 

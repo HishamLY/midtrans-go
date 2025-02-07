@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/midtrans/midtrans-go"
-	"github.com/midtrans/midtrans-go/example"
-	"github.com/midtrans/midtrans-go/snap"
+	"github.com/hishamly/midtrans-go"
+	"github.com/hishamly/midtrans-go/example"
+	"github.com/hishamly/midtrans-go/snap"
 )
 
 var s snap.Client

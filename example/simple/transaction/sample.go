@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/midtrans/midtrans-go"
-	"github.com/midtrans/midtrans-go/coreapi"
-	"github.com/midtrans/midtrans-go/example"
+	"github.com/hishamly/midtrans-go"
+	"github.com/hishamly/midtrans-go/coreapi"
+	"github.com/hishamly/midtrans-go/example"
 )
 
 var c coreapi.Client

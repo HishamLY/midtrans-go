@@ -1,7 +1,7 @@
 package coreapi
 
 import (
-	"github.com/midtrans/midtrans-go"
+	"github.com/hishamly/midtrans-go"
 )
 
 // ChargeReqWithMap : Represent Charge request with map payload
@@ -236,7 +236,7 @@ type GopaySubscriptionDetails struct {
 	AccountId string `json:"account_id"` // Gopay Account ID from Core API
 }
 
-//ScheduleDetails Create Subscription schedule object
+// ScheduleDetails Create Subscription schedule object
 type ScheduleDetails struct {
 	// Subscription's interval given by merchant
 	Interval int `json:"interval"`

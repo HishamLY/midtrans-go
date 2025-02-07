@@ -1,4 +1,4 @@
-module github.com/midtrans/midtrans-go
+module github.com/hishamly/midtrans-go
 
 go 1.13
 

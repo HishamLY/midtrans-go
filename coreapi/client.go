@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/midtrans/midtrans-go"
+	"github.com/hishamly/midtrans-go"
 )
 
 // Client : CoreAPI Client struct

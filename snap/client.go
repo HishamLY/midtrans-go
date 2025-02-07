@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/midtrans/midtrans-go"
+	"github.com/hishamly/midtrans-go"
 	"net/http"
 )
 
@@ -16,7 +16,7 @@ type Client struct {
 	Options    *midtrans.ConfigOptions
 }
 
-//New : this function will always be called when the Snap is initiated
+// New : this function will always be called when the Snap is initiated
 func (c *Client) New(serverKey string, env midtrans.EnvironmentType) {
 	c.Env = env
 	c.ServerKey = serverKey
@@ -24,7 +24,7 @@ func (c *Client) New(serverKey string, env midtrans.EnvironmentType) {
 	c.HttpClient = midtrans.GetHttpClient(env)
 }
 
-//getDefaultClient : this is internal function to get default Snap Client
+// getDefaultClient : this is internal function to get default Snap Client
 func getDefaultClient() Client {
 	return Client{
 		ServerKey:  midtrans.ServerKey,
@@ -37,7 +37,7 @@ func getDefaultClient() Client {
 	}
 }
 
-//CreateTransactionWithMap : Do `/transactions` API request to SNAP API return RAW JSON with Map as
+// CreateTransactionWithMap : Do `/transactions` API request to SNAP API return RAW JSON with Map as
 // body parameter, will be converted to JSON, more detail refer to: https://snap-docs.midtrans.com
 func (c Client) CreateTransactionWithMap(req *RequestParamWithMap) (ResponseWithMap, *midtrans.Error) {
 	resp := ResponseWithMap{}

@@ -19,8 +19,11 @@ const (
 	//Production : represent production environment
 	Production
 
+	//Integration : for UAT purpose
+	Integration
+
 	//libraryVersion : midtrans go library version
-	libraryVersion = "v1.3.8"
+	libraryVersion = "v1.3.8-integration.2"
 )
 
 // ServerKey is config payment API key for global use
@@ -69,7 +72,7 @@ var (
 
 // GetDefaultLogger the default logger that the library will use to log errors, debug, and informational messages.
 func GetDefaultLogger(env EnvironmentType) LoggerInterface {
-	if env == Sandbox {
+	if env == Sandbox || env == Integration {
 		return &LoggerImplementation{LogLevel: LogDebug}
 	} else {
 		return DefaultLoggerLevel
@@ -85,8 +88,9 @@ func GetHttpClient(Env EnvironmentType) *HttpClientImplementation {
 }
 
 var typeString = map[EnvironmentType]string{
-	Sandbox:    "https://api.sandbox.midtrans.com",
-	Production: "https://api.midtrans.com",
+	Sandbox:     "https://api.sandbox.midtrans.com",
+	Production:  "https://api.midtrans.com",
+	Integration: "https://api.stg.midtrans.com",
 }
 
 // BaseUrl To get Midtrans Base URL

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/midtrans/midtrans-go"
+	"github.com/hishamly/midtrans-go"
 	"net/http"
 )
 
@@ -32,7 +32,7 @@ func CreateSubscription(req *SubscriptionReq) (*CreateSubscriptionResponse, *mid
 	return getDefaultClient().CreateSubscription(req)
 }
 
-//GetSubscription : Do `/v1/subscriptions/{subscription_id}` To find subscription by id to see the subscription details
+// GetSubscription : Do `/v1/subscriptions/{subscription_id}` To find subscription by id to see the subscription details
 // more detail refer to: http://api-docs.midtrans.com/#recurring-api
 func (c Client) GetSubscription(subscriptionId string) (*StatusSubscriptionResponse, *midtrans.Error) {
 	resp := &StatusSubscriptionResponse{}
@@ -51,7 +51,7 @@ func (c Client) GetSubscription(subscriptionId string) (*StatusSubscriptionRespo
 	return resp, nil
 }
 
-//GetSubscription : Do `/v1/subscriptions/{subscription_id}` To find subscription by id to see the subscription details
+// GetSubscription : Do `/v1/subscriptions/{subscription_id}` To find subscription by id to see the subscription details
 // more detail refer to: http://api-docs.midtrans.com/#recurring-api
 func GetSubscription(subscriptionId string) (*StatusSubscriptionResponse, *midtrans.Error) {
 	return getDefaultClient().GetSubscription(subscriptionId)
